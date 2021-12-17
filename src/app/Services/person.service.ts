@@ -28,6 +28,6 @@ export class PersonService {
   }
 
   UpdatePerson(data: Person): Observable<any>{
-    return this._http.put(`${this.url}/${data.Id}`,data);
+    return this._http.put(`${this.url}/${data.ID}`,data);
   }
 }

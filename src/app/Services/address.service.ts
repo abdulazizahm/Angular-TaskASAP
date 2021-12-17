@@ -22,6 +22,9 @@ export class AddressService {
   AddAddress(data: Address): Observable<any>{
     return this._http.post<any>(this.url, data);
   }
+  AddAddresses(data: Address[]): Observable<any>{
+    return this._http.post<any>(this.url+"/AddAddresses", data);
+  }
 
   DeleteAddress(id: any): Observable<Address[]> {
     return this._http.delete<Address[]>(`${this.url}/${id}`);

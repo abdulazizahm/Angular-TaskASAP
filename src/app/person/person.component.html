@@ -1,1 +1,67 @@
-<p>person works!</p>
+<router-outlet #Outlet="outlet"></router-outlet>
+<div class="container-fluid" [hidden]="Outlet.isActivated" style="width:100%">
+  <br>
+  <div>
+    <a class="btn btn-success" routerLink="/person/Add">Add New Person</a>
+  </div><br>
+  <div class="card">
+
+    <div class="card-body">
+
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th hidden>
+              ID
+            </th>
+            <th>
+              Name
+            </th>
+            <th>
+                FamilyName
+              </th>
+            <th>
+            Addresses
+            </th>
+            <th>
+                EMailAdress
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+              Edit 
+            </th>
+            <th>
+              Delete
+            </th>
+          </tr>
+
+        </thead>
+        <tbody>
+          <tr *ngFor="let Person of Persons">
+            
+            <td hidden >{{Person.ID}}</td>
+            <td>{{Person.Name}}</td>
+            <td>{{Person.FamilyName}}</td>
+            <td><span *ngFor="let Address of Person.Addresses;let i=index " class="h6">Address {{i+1}} : {{Address.DetailsOfAddress}}<br></span></td>
+            <td>{{Person.EMailAdress}}</td>
+            <td>{{Person.Age}}</td>
+            
+            
+            <!--<td><img src="http://localhost:9602/Content/Imgs/Empolyees/{{empolyee.Image}}" width="100px" height="100px"></td>-->
+            <td>
+              <a class="btn btn-primary" routerLink="Edit/{{Person.ID}}">Update</a>
+            </td>
+            <td>
+              <a class="btn btn-danger" (click)="deletePerson(Person.ID)" routerLink="/Person" >Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
+

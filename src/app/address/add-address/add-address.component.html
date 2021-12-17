@@ -1,1 +1,38 @@
-<p>add-address works!</p>
+<div class="h2">Addresses of Person</div>
+<div class="container-fluid">
+<form #addressForm="ngForm" class="container mt-3" (ngSubmit)="logValue()">
+    <div class="row justify-content-center">
+      <div class="col-12">
+          <div class="row">
+              <div class="col-2 align-self-end">
+                <button type="button" class="btn btn-dark mb-2" (click)="addAddress()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+              </div>
+          </div>
+        <section class="container border mb-4 p-3" *ngFor="let address of addresses; let i = index;">
+          <div class="row">
+            <div class="col-10">
+                <h4>Address {{i + 1}}</h4>
+            </div>
+            <div class="col-2 text-right">
+                <button type="button" class="btn btn-danger btn-sm" (click)="removeAddress(i)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" class="form-control" [(ngModel)]="address.address" name="address_{{address.id}}" placeholder="St. Thomas Apartment"/>
+                  </div>
+            </div>
+          </div>
+        </section>
+  
+        <!--<div class="text-right">
+            <button type="submit" class="btn btn-primary"><i class="fa fa-address-book" aria-hidden="true"></i> Save Addresses</button>
+        </div>-->
+        
+      </div>
+    </div>
+  
+  </form>
+</div>
