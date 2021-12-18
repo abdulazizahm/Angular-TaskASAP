@@ -5,7 +5,7 @@ export class Address
         public Id:number,
         public Person_Id:number,
         public DetailsOfAddress:string,
-        public Person?:Person
+        public Person?:any
     )
     {}
 }

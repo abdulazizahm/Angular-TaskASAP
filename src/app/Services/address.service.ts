@@ -15,8 +15,8 @@ export class AddressService {
     return this._http.get<Address[]>(this.url);
   }
 
-  getAddressById(id: any): Observable<Address> {
-    return this._http.get<Address>(`${this.url}/${id}`);
+  getAddressesByPersonId(id: any): Observable<Address[]> {
+    return this._http.get<Address[]>(`${this.url}/${id}`);
   }
 
   AddAddress(data: Address): Observable<any>{
